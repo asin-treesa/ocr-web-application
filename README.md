@@ -1,219 +1,95 @@
-# 🖼️ Image To Text Conversion 
+# OCR Web Application
 
-A Python-based image processing application developed to demonstrate fundamental digital image processing techniques using OpenCV and NumPy. The project provides an interactive environment to perform various image enhancement, transformation, filtering, and analysis operations on digital images.
+A Python and Flask-based web application that extracts editable text from scanned PDF documents and images using Optical Character Recognition (OCR).
 
-This project was developed as part of an academic coursework to understand the practical implementation of image processing algorithms and computer vision concepts.
+## Overview
 
----
+This project automates text extraction from scanned documents, reducing manual effort and making document content searchable and reusable. It integrates OCR, image preprocessing, user authentication and database management into a single web application.
 
-# 📌 Features
+## Features
 
-## Basic Image Operations
+- User registration and login with password hashing.
+- Upload PDF and supported image files.
+- Extract text from digital and scanned PDFs.
+- Image preprocessing using OpenCV.
+- OCR-based text recognition using Tesseract.
+- Multi-page PDF processing.
+- Store and retrieve extraction history using MongoDB.
+- Flask session management.
 
-- Load and Display Images
-- Save Processed Images
-- Resize Images
-- Crop Images
-- Rotate Images
-- Flip Images
+## Technology Stack
 
----
+| Technology | Purpose |
+|---|---|
+| Python | Backend development |
+| Flask | Web framework |
+| MongoDB | Database |
+| PyMuPDF | PDF processing |
+| OpenCV | Image preprocessing |
+| Tesseract OCR | Text recognition |
+| PyTesseract | OCR integration |
+| Werkzeug | Password hashing |
+| HTML, CSS, JavaScript | Frontend |
 
-## Image Enhancement
+## Workflow
 
-- Brightness Adjustment
-- Contrast Enhancement
-- Histogram Equalization
-- Gamma Correction
-- Image Sharpening
+1. User registers or logs into the application.
+2. Uploads a PDF or image.
+3. PyMuPDF checks for directly extractable PDF text.
+4. Scanned pages are converted into images.
+5. OpenCV preprocesses images using grayscale conversion, Gaussian blur and thresholding.
+6. Tesseract extracts text from the processed images.
+7. Extracted results are stored in MongoDB and displayed to the user.
 
----
+## Installation and Setup
 
-## Filtering Techniques
-
-- Gaussian Blur
-- Median Filter
-- Average Filter
-- Bilateral Filtering
-- Noise Reduction
-
----
-
-## Edge Detection
-
-- Canny Edge Detection
-- Sobel Edge Detection
-- Laplacian Edge Detection
-
----
-
-## Image Transformations
-
-- Grayscale Conversion
-- Binary Thresholding
-- Adaptive Thresholding
-- Image Negative
-- Color Space Conversion (RGB, HSV, Gray)
-
----
-
-## Morphological Operations
-
-- Dilation
-- Erosion
-- Opening
-- Closing
-
----
-
-# 🚀 Technologies Used
-
-- Python
-- OpenCV
-- NumPy
-- Matplotlib
-
----
-
-# 📂 Project Structure
-
-```text
-image-processing/
-│
-├── images/
-├── output/
-├── src/
-├── main.py
-├── requirements.txt
-└── README.md
-```
-
----
-
-# ⚙️ Installation
-
-Clone the repository
+**1. Clone the repository**
 
 ```bash
 git clone https://github.com/asin-treesa/image-processing.git
-```
-
-Navigate to the project
-
-```bash
 cd image-processing
 ```
 
-Install dependencies
+**2. Create a virtual environment**
 
 ```bash
-pip install -r requirements.txt
+python -m venv venv
+venv\Scripts\activate
 ```
 
----
-
-# ▶️ Running the Project
+**3. Install dependencies**
 
 ```bash
-python main.py
+pip install Flask PyMuPDF opencv-python numpy pytesseract pymongo imutils
 ```
 
----
+**4. Install Tesseract OCR**
 
-# 📸 Sample Results
+Install Tesseract OCR and configure its executable path in `app.py`.
 
-Create a folder named:
+**5. Start MongoDB**
 
-```text
-screenshots/
+Ensure your local MongoDB server is running.
+
+**6. Run the application**
+
+```bash
+python app.py
 ```
 
-Suggested screenshots:
+Open `http://127.0.0.1:5000/` in your browser.
 
-```text
-screenshots/
-├── original_image.png
-├── grayscale.png
-├── edge_detection.png
-├── histogram.png
-├── filtered_image.png
-├── final_output.png
-```
+## Future Improvements
 
-Embed them like:
+- Cloud deployment and MongoDB Atlas integration.
+- Multi-language OCR support.
+- Advanced image preprocessing.
+- Asynchronous processing for large documents.
+- Enhanced security and performance optimization.
 
-```markdown
-## Original Image
+## Project Information
 
-![Original](screenshots/original_image.png)
-
-## Edge Detection
-
-![Edge Detection](screenshots/edge_detection.png)
-
-## Final Output
-
-![Output](screenshots/final_output.png)
-```
-
----
-
-# 🔄 Processing Workflow
-
-```
-Input Image
-      │
-      ▼
-Image Pre-processing
-      │
-      ▼
-Image Enhancement
-      │
-      ▼
-Filtering
-      │
-      ▼
-Edge Detection
-      │
-      ▼
-Feature Extraction
-      │
-      ▼
-Output Image
-```
-
----
-
-# 📚 Learning Objectives
-
-- Understand Digital Image Processing fundamentals
-- Apply OpenCV image manipulation techniques
-- Implement filtering and enhancement algorithms
-- Perform edge detection and feature extraction
-- Analyze image histograms and transformations
-
----
-
-# 🔮 Future Enhancements
-
-- Face Detection
-- Object Detection
-- Image Segmentation
-- OCR Integration
-- Real-time Webcam Processing
-- Deep Learning-based Image Enhancement
-
----
-
-# 📄 License
-
-This project is developed for educational and learning purposes.
-
----
-
-# 👩‍💻 Authors
-
-- Asin Treesa
-- Nanditha Krishnakumar
-- Adithya P
-- JS Vyshnavi
+- **Internship Organization:** Centre for Development of Imaging Technology (CDIT), Kerala
+- **Duration:** 08 May 2025 – 07 June 2025
+- **Author:** Asin Treesa Rose
+- **GitHub:** https://github.com/asin-treesa/image-processing
